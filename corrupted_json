@@ -1,0 +1,15 @@
+spark.read.format('json')\
+    .option('inferSchema', 'true')\
+    .option('mode', 'PERMISSIVE')\
+    .load('/FileStore/tables/corrupted_json.json').show(truncate=False)
+
+
++----------------------------------------+----+--------+------+
+|_corrupt_record                         |age |name    |salary|
++----------------------------------------+----+--------+------+
+|null                                    |20  |Manish  |20000 |
+|null                                    |25  |Nikita  |21000 |
+|null                                    |16  |Pritam  |22000 |
+|null                                    |35  |Prantosh|25000 |
+|{"name":"Vikash","age":67,"salary":40000|null|null    |null  |
++----------------------------------------+----+--------+------+
