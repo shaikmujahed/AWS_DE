@@ -1,0 +1,5 @@
+spark.read.format('json')\
+    .option('inferschema', 'true')\
+    .option('mode', 'PERMISSIVE')\
+    .option('multiline', 'true')\
+    .load('/FileStore/tables/multi_line_json.json').show()
