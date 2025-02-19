@@ -1,0 +1,5 @@
+df.repartition(3).write.format('csv')\
+    .option('header','true')\
+        .option('mode', 'overwrite')\
+            .option('path', '/FileStore/tables/csv/write_repartition/')\
+            .save()
