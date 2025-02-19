@@ -22,13 +22,13 @@ def lambda_handler(event, context):
     print("Line: ", lines)
     headers = next(lines)
     
-    print("headers: %s", %(headers))
+    print(f"headers:{headers}")
     
     list_data = list(lines)
     print("List Data: ", list_data)
     
     india, us = [], []
-    [india.append(int(i[2])) for i in list_data if i[3] == 'India' else us.append(int(i[2]))]
+    [india.append(int(i[2])) if i[3] == 'India' else us.append(int(i[2])) for i in list_data]
     india_total = sum(india) 
     us_total = sum(us)
 
