@@ -20,3 +20,12 @@ parquet_file.metadata
 parquet_file.metadata.row_group(0) 
 parquet_file.metadata.row_group(0).column(0)
 parquet_file.metadata.row_group(0).column(0).statistics 
+
+
+
+with open('D:/workspace/data/emp-details.txt', 'r') as file:
+	content = file.read().replace(" ", "")
+
+	
+>>> with open("D:/workspace/data/output.txt", "w") as file:
+    file.write(content)
