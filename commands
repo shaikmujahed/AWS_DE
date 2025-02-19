@@ -1,6 +1,8 @@
 %fs
 ls /FileStore/tables
 
+dbutils.fs.ls('/FileStore/tables/csv/write_repartition/')
+
 pip install parquet-tools
 
 Run the below command in cmd/terminal
