@@ -1,0 +1,8 @@
+df.write.format('csv')\
+    .option('header', 'true')\
+    .option('mode', 'overwrite')\
+    .option('path', '/FileStore/tables/partition_by_address/')\
+    .partitionBy('address')\
+    .save()
+
+dbutils.fs.ls('/FileStore/tables/partition_by_address/')
