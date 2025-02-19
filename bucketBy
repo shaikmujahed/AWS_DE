@@ -1,3 +1,5 @@
+
+#before bucketby do partition 
 df.write.format('csv')\
     .option('header', 'true')\
     .option('mode', 'overwrite')\
