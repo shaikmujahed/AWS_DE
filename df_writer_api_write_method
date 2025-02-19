@@ -1,0 +1,5 @@
+df.write.format('csv')\
+    .option('header', 'true')\
+    .option('mode', 'overwrite')\
+    .option('path', '/FileStore/tables/csv_write/')\
+    .save()
