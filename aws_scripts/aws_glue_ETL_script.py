@@ -30,9 +30,9 @@ DropDuplicates_node1740064760747 =  DynamicFrame.fromDF(nssalessource_node174006
 
 # Script generated for node Drop Fields
 DropFields_node1740064823570 = DropFields.apply(frame=DropDuplicates_node1740064760747, paths=["loc", "email"], transformation_ctx="DropFields_node1740064823570")
-
+DropFields_node1740064823570.repartition(1)
 # Script generated for node ns-sales-destination
 EvaluateDataQuality().process_rows(frame=DropFields_node1740064823570, ruleset=DEFAULT_DATA_QUALITY_RULESET, publishing_options={"dataQualityEvaluationContext": "EvaluateDataQuality_node1740062307374", "enableDataQualityResultsPublishing": True}, additional_options={"dataQualityResultsPublishing.strategy": "BEST_EFFORT", "observations.scope": "ALL"})
 nssalesdestination_node1740064963070 = glueContext.write_dynamic_frame.from_options(frame=DropFields_node1740064823570, connection_type="s3", format="csv", connection_options={"path": "s3://ns-pip-destination", "partitionKeys": []}, transformation_ctx="nssalesdestination_node1740064963070")
-nssalesdestination_node1740064963070 =nssalesdestination_node1740064963070.repartition(1)
+
 job.commit()
